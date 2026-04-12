@@ -1,26 +1,54 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f6f3;
+  --foreground: #1d2e35;
+  --surface: #ffffff;
+  --surface-muted: #eef3f3;
+  --primary: #0d5c63;
+  --primary-strong: #0a4a50;
+  --accent: #f3a167;
+  --border-soft: #d6e0de;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-plus-jakarta-sans);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-playfair-display), serif;
+}
+
+.guest-bg {
+  background:
+    radial-gradient(circle at 10% 15%, rgba(243, 161, 103, 0.2), transparent 40%),
+    radial-gradient(circle at 90% 0%, rgba(13, 92, 99, 0.14), transparent 35%),
+    linear-gradient(180deg, #faf8f2 0%, #f4f6f4 45%, #f7f6f3 100%);
+}
+
+.glass-card {
+  background: color-mix(in oklab, var(--surface), white 35%);
+  border: 1px solid color-mix(in oklab, var(--border-soft), white 35%);
+  box-shadow: 0 16px 40px rgba(15, 39, 44, 0.08);
+}
+
+.section-shell {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .section-shell {
+    padding-inline: 2rem;
+  }
 }
