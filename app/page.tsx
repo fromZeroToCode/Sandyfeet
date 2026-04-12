@@ -77,7 +77,7 @@ export default function Home() {
   return (
     <GuestShell>
       {/* HERO SECTION */}
-      <section className="relative -mx-4 flex min-h-[78vh] flex-col items-center justify-center overflow-hidden pt-24 pb-20 text-center md:-mx-6 md:min-h-[84vh] md:pt-32 md:pb-24 lg:-mx-8">
+      <section className="relative mt-4 flex min-h-[50vh] flex-col items-center justify-center overflow-hidden rounded-[2.5rem] pt-20 pb-16 text-center md:mt-6 md:min-h-[60vh] md:pt-24 md:pb-16 lg:mt-8 shadow-2xl border border-white/20">
         {/* Background Image & Overlay */}
         <div className="absolute inset-0 z-0">
           <Image 
@@ -109,26 +109,26 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative z-20 max-w-4xl px-4 animate-in fade-in slide-in-from-bottom-8 duration-1000">
-          <p className="mb-6 inline-flex rounded-full bg-white/20 backdrop-blur-md px-5 py-2 text-xs font-bold tracking-widest text-white uppercase border border-white/30 shadow-lg">
+        <div className="relative z-20 max-w-3xl px-4 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          <p className="mb-4 inline-flex rounded-full bg-white/20 backdrop-blur-md px-4 py-1.5 text-[10px] md:text-xs font-bold tracking-widest text-white uppercase border border-white/30 shadow-lg">
             Welcome to Sandyfeet Camp
           </p>
-          <h1 className="font-display text-5xl leading-tight text-white md:text-7xl font-bold tracking-tight drop-shadow-xl">
+          <h1 className="font-display text-4xl leading-tight text-white md:text-5xl lg:text-6xl font-bold tracking-tight drop-shadow-xl">
             Escape to the <span className="text-[var(--accent)] relative inline-block">
                 shore.
             </span>
             <br />
             Book your stay.
           </h1>
-          <p className="mt-8 text-base leading-relaxed text-white/90 md:text-xl max-w-2xl mx-auto font-medium drop-shadow">
+          <p className="mt-5 text-sm leading-relaxed text-white/90 md:text-base max-w-xl mx-auto font-medium drop-shadow">
             Reserve rooms and day tours in minutes. Enjoy a quick and smooth booking flow from search to confirmation.
           </p>
           
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-             <Link href="/rooms" className="px-8 py-3.5 rounded-full bg-[var(--primary)] text-white font-bold hover:bg-[var(--primary-strong)] hover:-translate-y-1 transition-all duration-300 shadow-[0_8px_30px_rgba(13,92,99,0.4)]">
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+             <Link href="/rooms" className="px-6 py-3 rounded-full bg-[var(--primary)] text-white text-sm font-bold hover:bg-[var(--primary-strong)] hover:-translate-y-1 transition-all duration-300 shadow-[0_8px_30px_rgba(13,92,99,0.4)]">
                Explore Rooms
              </Link>
-             <Link href="/day-tour" className="px-8 py-3.5 rounded-full bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold hover:bg-white/20 hover:-translate-y-1 transition-all duration-300">
+             <Link href="/day-tour" className="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/30 text-white text-sm font-bold hover:bg-white/20 hover:-translate-y-1 transition-all duration-300">
                Book a Day Tour
              </Link>
           </div>
@@ -164,10 +164,10 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="marquee-track mt-10">
+        <div className="marquee-track mt-8">
           <div className="marquee-content">
             {[...galleryFrames, ...galleryFrames].map((src, index) => (
-              <div key={`${src}-${index}`} className="relative h-56 w-[22rem] shrink-0 overflow-hidden rounded-[1.75rem] border border-white/70 shadow-xl md:h-64 md:w-[26rem]">
+              <div key={`${src}-${index}`} className="relative h-40 w-[18rem] shrink-0 overflow-hidden rounded-[1.75rem] border border-white/70 shadow-xl md:h-48 md:w-[22rem]">
                 <Image
                   src={src}
                   alt={`Sandyfeet gallery frame ${index + 1}`}
@@ -208,7 +208,7 @@ export default function Home() {
                 key={room.name}
                 className="relative bg-white rounded-[2.5rem] p-5 md:p-6 border border-[var(--border-soft)] shadow-sm hover:shadow-2xl hover:shadow-[var(--primary)]/5 transition-all duration-500 group flex flex-col items-start"
               >
-                <div className="relative w-full h-64 sm:h-[18rem] rounded-[2rem] overflow-hidden mb-6">
+                <div className="relative w-full h-48 sm:h-[14rem] rounded-[2rem] overflow-hidden mb-6">
                   <Image src={room.images[0]} alt={room.name} fill className="object-cover transform group-hover:scale-[1.03] transition-transform duration-700" />
                   
                   {/* Badge */}

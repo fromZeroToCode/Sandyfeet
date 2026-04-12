@@ -19,7 +19,7 @@ export function GuestNav() {
 
   return (
     <header className="sticky top-4 z-50 w-full px-4 md:px-6 lg:px-8">
-      <nav className="mx-auto w-full max-w-[1400px] rounded-2xl border border-white/30 bg-white/25 px-4 py-3 shadow-[0_12px_28px_rgba(15,39,44,0.08)] backdrop-blur-3xl md:rounded-full md:px-8 lg:px-10">
+      <nav className="mx-auto w-full max-w-6xl rounded-2xl border border-white/30 bg-white/25 px-4 py-3 shadow-[0_12px_28px_rgba(15,39,44,0.08)] backdrop-blur-3xl md:rounded-full md:px-8 lg:px-10">
         <div className="flex items-center justify-between gap-4">
           <Link href="/" className="flex items-center gap-3">
             <Image
