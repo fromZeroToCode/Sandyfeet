@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { GuestShell } from "./components/guest/GuestShell";
+import { HeroSection } from "./components/guest/HeroSection";
 import { roomOffers } from "./lib/guest-content";
 
 const galleryFrames = [
@@ -75,71 +76,13 @@ const roomIconBySlug: Record<string, string> = {
 
 export default function Home() {
   return (
-    <GuestShell>
+    <GuestShell isFullWidth={true}>
       {/* HERO SECTION */}
-      <section className="relative mt-4 flex min-h-[50vh] flex-col items-center justify-center overflow-hidden rounded-[2.5rem] pt-20 pb-16 text-center md:mt-6 md:min-h-[60vh] md:pt-24 md:pb-16 lg:mt-8 shadow-2xl border border-white/20">
-        {/* Background Image & Overlay */}
-        <div className="absolute inset-0 z-0">
-          <Image 
-            src="/Assets/View/FrontView.jpg" 
-            alt="Sandyfeet Resort View" 
-            fill 
-            className="object-cover object-[center_38%] md:object-[center_30%]"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)]/88 via-[#1d2e35]/40 to-[#1d2e35]/18 mix-blend-multiply"></div>
-          <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent via-[var(--background)]/20 to-[var(--background)]"></div>
-        </div>
-
-        {/* Fun icons (minimal in hero) */}
-        <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
-          <Image
-            src="/Assets/Icon/Beach ball.png"
-            alt=""
-            width={170}
-            height={170}
-            className="animate-float absolute -left-8 top-[18%] opacity-85 drop-shadow-xl md:left-6 md:top-[22%] md:w-[180px]"
-          />
-          <Image
-            src="/Assets/Icon/Coconut tree.png"
-            alt=""
-            width={230}
-            height={230}
-            className="animate-float-reverse absolute -right-10 bottom-[12%] opacity-80 drop-shadow-xl md:right-6 md:bottom-[10%] md:w-[240px]"
-          />
-        </div>
-
-        <div className="relative z-20 max-w-3xl px-4 animate-in fade-in slide-in-from-bottom-8 duration-1000">
-          <p className="mb-4 inline-flex rounded-full bg-white/20 backdrop-blur-md px-4 py-1.5 text-[10px] md:text-xs font-bold tracking-widest text-white uppercase border border-white/30 shadow-lg">
-            Welcome to Sandyfeet Camp
-          </p>
-          <h1 className="font-display text-4xl leading-tight text-white md:text-5xl lg:text-6xl font-bold tracking-tight drop-shadow-xl">
-            Escape to the <span className="text-[var(--accent)] relative inline-block">
-                shore.
-            </span>
-            <br />
-            Book your stay.
-          </h1>
-          <p className="mt-5 text-sm leading-relaxed text-white/90 md:text-base max-w-xl mx-auto font-medium drop-shadow">
-            Reserve rooms and day tours in minutes. Enjoy a quick and smooth booking flow from search to confirmation.
-          </p>
-          
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-             <Link href="/rooms" className="px-6 py-3 rounded-full bg-[var(--primary)] text-white text-sm font-bold hover:bg-[var(--primary-strong)] hover:-translate-y-1 transition-all duration-300 shadow-[0_8px_30px_rgba(13,92,99,0.4)]">
-               Explore Rooms
-             </Link>
-             <Link href="/day-tour" className="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/30 text-white text-sm font-bold hover:bg-white/20 hover:-translate-y-1 transition-all duration-300">
-               Book a Day Tour
-             </Link>
-          </div>
-        </div>
-
-        {/* Bottom fade transition to next section */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-28 bg-gradient-to-b from-transparent via-[var(--background)]/50 to-[var(--background)] md:h-44" />
-      </section>
+      <HeroSection />
 
       {/* ANIMATED GALLERY */}
-      <section className="relative z-10 mt-8 mb-20 overflow-hidden">
+      <div className="mx-auto w-full max-w-6xl">
+        <section className="relative z-10 mt-8 mb-20 overflow-hidden">
         <div className="pointer-events-none absolute inset-0 z-0">
           <Image
             src="/Assets/Icon/Shell.png"
@@ -215,19 +158,11 @@ export default function Home() {
                   <div className="absolute top-5 left-5 bg-white/95 backdrop-blur-md px-4 py-2 rounded-full text-[11px] uppercase tracking-wider font-extrabold text-slate-800 shadow-[0_4px_12px_rgba(0,0,0,0.05)]">
                     {roomBadgeBySlug[room.slug] ?? "Featured"}
                   </div>
-                  
-                  {/* Floating Action Button-like decoration */}
-                  <div className="absolute -bottom-6 right-6 w-14 h-14 bg-white rounded-full p-2.5 shadow-xl border border-slate-50 flex items-center justify-center z-10 transition-transform group-hover:-translate-y-2 duration-300">
-                     <Image src={roomIconBySlug[room.slug] ?? "/Assets/Icon/Shell.png"} alt="icon" width={28} height={28} className="object-contain" />
-                  </div>
                 </div>
 
-                <div className="w-full text-left flex-1 flex flex-col justify-between">
+                <div className="w-full text-left flex-1 flex flex-col justify-between pt-2">
                    <div>
-                     <div className="flex items-center gap-2 mb-3">
-                       <span className="flex-shrink-0 w-6 flex justify-center"><Image src="/Assets/Icon/Shell.png" width={16} height={16} alt="capacity" className="opacity-40"/></span>
-                       <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mt-0.5 line-clamp-1">{room.capacity}</span>
-                     </div>
+                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-3 line-clamp-1">{room.capacity}</p>
                      <h3 className="text-2xl font-bold text-slate-900 mb-2">{room.name}</h3>
                    </div>
                    
@@ -337,7 +272,7 @@ export default function Home() {
       </section>
 
       {/* FIND US */}
-      <section className="relative z-10 mb-24 w-full">
+      <section className="relative z-10 block pb-4 lg:pb-8 w-full">
         <div className="grid gap-6 rounded-[2rem] border border-[var(--border-soft)] bg-white/80 p-4 shadow-sm md:grid-cols-[1.1fr_0.9fr] md:p-6">
           <article className="rounded-[1.5rem] bg-[var(--surface-muted)] p-6 md:p-8">
             <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-slate-500">Find Us</p>
@@ -369,6 +304,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </div>
     </GuestShell>
   );
 }

@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f6f3;
+  --background: #ffffff;
   --foreground: #1d2e35;
   --surface: #ffffff;
-  --surface-muted: #eef3f3;
-  --primary: #0d5c63;
-  --primary-strong: #0a4a50;
+  --surface-muted: #f8fafc;
+  --primary: #3b82f6;
+  --primary-strong: #2563eb;
   --accent: #f3a167;
-  --border-soft: #d6e0de;
+  --border-soft: #f1f5f9;
 }
 
 @theme inline {
@@ -28,10 +28,7 @@ body {
 }
 
 .guest-bg {
-  background:
-    radial-gradient(circle at 10% 15%, rgba(243, 161, 103, 0.2), transparent 40%),
-    radial-gradient(circle at 90% 0%, rgba(13, 92, 99, 0.14), transparent 35%),
-    linear-gradient(180deg, #faf8f2 0%, #f4f6f4 45%, #f7f6f3 100%);
+  background: #ffffff;
 }
 
 .glass-card {

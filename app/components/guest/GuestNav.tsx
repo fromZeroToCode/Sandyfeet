@@ -18,8 +18,8 @@ export function GuestNav() {
   const isRoomsSection = pathname.startsWith("/rooms") || pathname.startsWith("/book/room");
 
   return (
-    <header className="sticky top-4 z-50 w-full px-4 md:px-6 lg:px-8">
-      <nav className="mx-auto w-full max-w-6xl rounded-2xl border border-white/30 bg-white/25 px-4 py-3 shadow-[0_12px_28px_rgba(15,39,44,0.08)] backdrop-blur-3xl md:rounded-full md:px-8 lg:px-10">
+    <header className="w-full px-4 md:px-6 lg:px-8">
+      <nav className="mx-auto w-full max-w-6xl rounded-2xl border border-slate-100 bg-white/70 px-4 py-3 shadow-[0_12px_28px_rgba(15,39,44,0.04)] backdrop-blur-3xl md:rounded-full md:px-8 lg:px-10">
         <div className="flex items-center justify-between gap-4">
           <Link href="/" className="flex items-center gap-3">
             <Image
@@ -28,6 +28,7 @@ export function GuestNav() {
               width={44}
               height={44}
               className="h-11 w-11 rounded-full object-cover shadow-sm border border-slate-100"
+              priority
             />
             <div className="hidden sm:block">
               <p className="font-display text-xl md:text-2xl font-bold leading-none text-[#0d5c63]">Sandyfeet</p>
