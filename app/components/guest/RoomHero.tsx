@@ -7,7 +7,7 @@ import { RoomOffer } from "../../lib/guest-content";
 
 type RoomHeroProps = {
   room: RoomOffer;
-  availability: { date: string; status: string }[];
+  availability: { date: string; status: stcd ring }[];
 };
 
 export function RoomHero({ room, availability }: RoomHeroProps) {
